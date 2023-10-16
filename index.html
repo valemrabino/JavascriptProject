@@ -1,0 +1,63 @@
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/index.css">
+    <title hidden>Carrito | MIVAN 3D</title>
+</head>
+
+<body>
+    <header>
+        <img src="./assets/logoMivan-sin circulo.png" alt="logoMivan">
+    </header>
+    <div class="title">
+        <p>¡Bienvenido a la revolución tridimensional!</p>
+        <p>🌟 Descubre productos impresos en 3D que desafían los
+            límites de la creatividad.</p>
+        <p>Explora, personaliza y haz realidad tus ideas.</p>
+        <p>¡Empecemos a imprimir sueños juntos! 🚀</p>
+    </div>
+    <section class="products" id="products">
+        <div class="product" data-id="1">
+            <img src="./assets/1.png" alt="Product 1">
+            <h3>Soporte</h3>
+            <p>$3000</p>
+            <button type="button" class="btn btn-outline-secondary" onclick="addToCart(1)">Agregar al carrito</button>
+        </div>
+        <div class="product" data-id="2">
+            <img src="./assets/2.png" alt="Product 2">
+            <h3>Llaveros</h3>
+            <p>$250</p>
+            <button type="button" class="btn btn-outline-secondary" onclick="addToCart(2)">Agregar al carrito</button>
+        </div>
+        <div class="product" data-id="3">
+            <img src="./assets/3.png" alt="Product 3">
+            <h3>Maceta</h3>
+            <p>$2500</p>
+            <button type="button" class="btn btn-outline-secondary" onclick="addToCart(3)">Agregar al carrito</button>
+        </div>
+    </section>
+    <section class="cart">
+        <h2>Carrito</h2>
+        <ul id="cart-items">
+
+        </ul>
+        <p>Total: $<span id="cart-total">0.00</span></p>
+        <button class="bot" onclick="checkout()">Proceder al Pago</button>
+    </section>
+    <script src="./js/main.js"></script>
+
+</body>
+
+</html>
