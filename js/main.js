@@ -8,7 +8,7 @@ const products = [
 
 
 const cartItems = [];
-const url = './productos.json';
+const url = 'https://github.com/valemrabino/JavascriptProject/blob/main/productos.json';
 document.addEventListener('DOMContentLoaded', function () {
     fetch(url)
         .then(response => response.json())
