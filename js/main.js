@@ -8,7 +8,7 @@ const products = [
 
 
 const cartItems = [];
-const url = 'https://github.com/valemrabino/JavascriptProject/blob/main/productos.json';
+const url = './productos.json';
 document.addEventListener('DOMContentLoaded', function () {
     fetch(url)
         .then(response => response.json())
@@ -108,3 +108,26 @@ document.addEventListener('load', function () {
         productsContainer.appendChild(productElement);
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('products').addEventListener('click', function () {
+        Swal.fire({
+            title: 'Hola',
+            text: 'Se ha agregado un producto',
+            icon: 'success',
+            confirmButtonText: '¡Ok!'
+        });
+    });
+    document.getElementById('pago').addEventListener('cli', function () {
+        Swal.fire({
+            title: 'Hola💥',
+            text: 'Gracias por su compra!💫',
+            icon: 'success',
+            confirmButtonText: '¡Ok!'
+        });
+    });
+
+});
+
+
