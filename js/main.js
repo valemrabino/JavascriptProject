@@ -6,13 +6,15 @@ const products = [
     { id: 3, name: 'Maceta', price: 2500 },
 ];
 
-
 const cartItems = [];
 const url = './productos.json';
 document.addEventListener('DOMContentLoaded', function () {
     fetch(url)
         .then(response => response.json())
         .then(data => {
+            localStorage.setItem('id',data.id);
+            localStorage.setItem('name',data.name);
+            localStorage.setItem('price',data.price);
             products = data;
             loadProducts(products);
         })
@@ -47,6 +49,13 @@ function addToCart(productId) {
         } else {
             cartItems.push({ id: productId, contador: 1 });
         }
+        Toastify({
+            text: '¡Se ha agregado un producto!',
+            duration: 3000,  
+            gravity: "bottom",  
+            position: 'center', 
+            backgroundColor: "linear-gradient(to right,  #92B4F4, #92B4F4)", 
+          }).showToast();
 
         updateCart();
     }
@@ -55,6 +64,13 @@ function addToCart(productId) {
 function removeFromCart(productId) {
     const itemIndex = cartItems.findIndex(item => item.id === productId);
     cartItems.splice(itemIndex, 1);
+    Toastify({
+        text: '¡Se ha eliminado un producto!',
+        duration: 3000, 
+        gravity: "bottom",  
+        position: 'center', 
+        backgroundColor: "linear-gradient(to right,  #92B4F4, #92B4F4)", 
+      }).showToast();
 
     updateCart();
 }
@@ -76,7 +92,6 @@ function updateCart() {
             <span>$${productTotal.toFixed(2)}</span>
             <button class="delete" onclick="removeFromCart(${item.id})">Eliminar</button>
         `;
-
         cartItemsElement.appendChild(cartItemElement);
     });
 
@@ -89,7 +104,7 @@ function updateCart() {
 }
 
 function checkout() {
-    alert(`Gracias por su compra! Total a pagar $${document.querySelector('#cart-total').textContent}`);
+   // alert(`Gracias por su compra! Total a pagar $${document.querySelector('#cart-total').textContent}`);
 }
 
 document.addEventListener('load', function () {
@@ -107,27 +122,6 @@ document.addEventListener('load', function () {
         `;
         productsContainer.appendChild(productElement);
     });
-});
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('products').addEventListener('click', function () {
-        Swal.fire({
-            title: 'Hola',
-            text: 'Se ha agregado un producto',
-            icon: 'success',
-            confirmButtonText: '¡Ok!'
-        });
-    });
-    document.getElementById('pago').addEventListener('cli', function () {
-        Swal.fire({
-            title: 'Hola💥',
-            text: 'Gracias por su compra!💫',
-            icon: 'success',
-            confirmButtonText: '¡Ok!'
-        });
-    });
-
 });
 
 
