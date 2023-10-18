@@ -1,5 +1,4 @@
 //aplicando DOM al carrito
-
 const products = [
     { id: 1, name: 'Soporte', price: 3000 },
     { id: 2, name: 'Llaveros', price: 250 },
@@ -12,11 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            localStorage.setItem('id',data.id);
-            localStorage.setItem('name',data.name);
-            localStorage.setItem('price',data.price);
-            products = data;
-            loadProducts(products);
+            localStorage.setItem('products', JSON.stringify(data)); // se almacena el archivo json como cadena
+            loadProducts(data);
         })
         .catch(error => console.error('Error al cargar datos de productos:', error));
 });
@@ -51,11 +47,11 @@ function addToCart(productId) {
         }
         Toastify({
             text: '¡Se ha agregado un producto!',
-            duration: 3000,  
-            gravity: "bottom",  
-            position: 'center', 
-            backgroundColor: "linear-gradient(to right,  #92B4F4, #92B4F4)", 
-          }).showToast();
+            duration: 3000,
+            gravity: "bottom",
+            position: 'center',
+            backgroundColor: "linear-gradient(to right,  #92B4F4, #92B4F4)",
+        }).showToast();
 
         updateCart();
     }
@@ -66,11 +62,11 @@ function removeFromCart(productId) {
     cartItems.splice(itemIndex, 1);
     Toastify({
         text: '¡Se ha eliminado un producto!',
-        duration: 3000, 
-        gravity: "bottom",  
-        position: 'center', 
-        backgroundColor: "linear-gradient(to right,  #92B4F4, #92B4F4)", 
-      }).showToast();
+        duration: 3000,
+        gravity: "bottom",
+        position: 'center',
+        backgroundColor: "linear-gradient(to right,  #92B4F4, #92B4F4)",
+    }).showToast();
 
     updateCart();
 }
@@ -104,7 +100,7 @@ function updateCart() {
 }
 
 function checkout() {
-   // alert(`Gracias por su compra! Total a pagar $${document.querySelector('#cart-total').textContent}`);
+    // alert(`Gracias por su compra! Total a pagar $${document.querySelector('#cart-total').textContent}`);
 }
 
 document.addEventListener('load', function () {
