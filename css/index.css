@@ -102,3 +102,9 @@ header {
     background-color: #92B4F4;
     box-shadow: 0px 0px 15px 10px rgba(0.1, 0.1, 0, 0.1);
 }
+.botok{
+    color: white;
+    text-decoration: #92B4F4 !important;
+    background-color: white;
+    
+}

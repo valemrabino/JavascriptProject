@@ -4,7 +4,10 @@ document.addEventListener('DOMContentLoaded', function () {
             title: 'Hola 😎',
             text: '¡Tu compra fue exitosa! Gracias por confiar 💘',
             icon: 'success',
-            confirmButtonText: '¡Ok!'
+            confirmButtonText: '¡Ok!',
+            customClass: {
+                confirmButton: 'botok'
+            }
         });
     });
 });
